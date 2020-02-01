@@ -20,16 +20,19 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        //Applies inverse Torque to rotate player
         if (Input.GetButton("Horizontal"))
         {
             _body.AddTorque(-Input.GetAxis("Horizontal") * turnForce);
         }
 
+        //Applies input relative directional force
         if (Input.GetButton("Vertical"))
         {
             _body.AddRelativeForce(Vector2.right * forwardThrust * Input.GetAxis("Vertical"));
-            //Vector2 testForce = new Vector2(Vector2.right * forwardThrust * Input.GetAxis("Vertical"));
         }
+
+        //Enforces Max Speed
+        _body.velocity = Vector2.ClampMagnitude(_body.velocity, maxSpeed);
     }
 }
