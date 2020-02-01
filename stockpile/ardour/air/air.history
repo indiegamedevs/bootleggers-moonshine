@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UndoHistory>
+  <UndoTransaction tv-sec="1580586021" tv-usec="725846" name="split">
+    <StatefulDiffCommand obj-id="2273" type-name="ARDOUR::MidiPlaylist">
+      <Changes/>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseCut" zoom="64" left-frame="0" y-origin="0">
+        <Selection>
+          <StripableView id="2324"/>
+          <Marker id="326" start="0"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseCut" zoom="64" left-frame="0" y-origin="0">
+        <Selection>
+          <StripableView id="2324"/>
+          <Marker id="326" start="0"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1580586025" tv-usec="169578" name="delete objects">
+    <StatefulDiffCommand obj-id="2273" type-name="ARDOUR::MidiPlaylist">
+      <Changes>
+        <Regions>
+          <Remove id="2276"/>
+        </Regions>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="64" left-frame="0" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="2276"/>
+          </Regions>
+          <Marker id="326" start="0"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="64" left-frame="0" y-origin="0">
+        <Selection>
+          <Marker id="326" start="0"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1580586051" tv-usec="759503" name="capture">
+    <StatefulDiffCommand obj-id="2273" type-name="ARDOUR::MidiPlaylist">
+      <Changes>
+        <Regions>
+          <Add id="2585"/>
+        </Regions>
+      </Changes>
+    </StatefulDiffCommand>
+  </UndoTransaction>
+</UndoHistory>
