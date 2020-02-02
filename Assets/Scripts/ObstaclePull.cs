@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerGrab : MonoBehaviour
+public class ObstaclePull : MonoBehaviour
 {
-    [SerializeField] GrabbedObject objectInField;
-    [SerializeField] GrabbedObject grabbedObject;
+    [SerializeField] ObstacleGrab objectInField;
+    [SerializeField] ObstacleGrab grabbedObject;
 
     GameObject goalTrigger;
 
     private void Update()
     {
-        if(Input.GetButtonDown("Grab"))
+        if (Input.GetButtonDown("Grab"))
         {
             Grab();
         }
@@ -19,16 +19,16 @@ public class PlayerGrab : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<GrabbedObject>() != null)
+        if (collision.gameObject.GetComponent<ObstacleGrab>() != null)
         {
-            objectInField = collision.gameObject.GetComponent<GrabbedObject>();
+            objectInField = collision.gameObject.GetComponent<ObstacleGrab>();
         }
         Debug.Log(collision.gameObject.tag);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<GrabbedObject>() != null && objectInField != null)
+        if (collision.gameObject.GetComponent<ObstacleGrab>() != null && objectInField != null)
         {
             objectInField = null;
         }
@@ -41,7 +41,9 @@ public class PlayerGrab : MonoBehaviour
             if (objectInField != null)
             {
                 grabbedObject = objectInField;
-                grabbedObject.OnGrab(transform);             
+                transform.parent.GetComponent<Rigidbody2D>().simulated = false;
+                grabbedObject.OnGrab(transform);
+                transform.parent.GetComponent<Rigidbody2D>().simulated = true;
             }
         }
         else

@@ -14,12 +14,6 @@ public class GrabbedObject : MonoBehaviour
         goalTrigger.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnGrab(Transform grabber)
     {      
         Transform t = _parent.transform;
@@ -36,6 +30,7 @@ public class GrabbedObject : MonoBehaviour
         goalTrigger.SetActive(false);
         _parent.SetActive(true);
         transform.SetParent(_parent.transform);
+        _parent.transform.localPosition = new Vector3(_parent.transform.localPosition.x + 1f, _parent.transform.localPosition.y);
         _parent.transform.SetParent(null);
     }
 }
