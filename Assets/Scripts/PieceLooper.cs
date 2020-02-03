@@ -24,26 +24,35 @@ public class PieceLooper : MonoBehaviour
 
     void ScreenWrap()
     {
-        if (isWrappingX || isWrappingY)
-
-        {
-            return;
-        }
         viewportPosition = cam.WorldToViewportPoint(transform.position);
         var newPosition = transform.position;
 
-        if (!isWrappingX && (viewportPosition.x > 1 || viewportPosition.x < 0))
+        if (!isWrappingX)
         {
-            newPosition.x = -newPosition.x;
+            if ((viewportPosition.x > 1 || viewportPosition.x < 0))
+            {
+                newPosition.x = -newPosition.x;
 
-            isWrappingX = true;
+                isWrappingX = true;
+            }
+            else
+            {
+                isWrappingX = false;
+            }
         }
 
-        if (!isWrappingY && (viewportPosition.y > 1 || viewportPosition.y < 0))
+        if (!isWrappingY)
         {
-            newPosition.y = -newPosition.y;
+            if ((viewportPosition.y > 1 || viewportPosition.y < 0))
+            {
+                newPosition.y = -newPosition.y;
 
-            isWrappingY = true;
+                isWrappingY = true;
+            }
+            else
+            {
+                isWrappingY = false;
+            }
         }
 
         transform.position = newPosition;

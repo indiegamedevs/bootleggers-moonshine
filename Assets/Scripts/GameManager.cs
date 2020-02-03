@@ -6,9 +6,12 @@ using UnityEngine.Playables;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
-    public PlayableAsset[] playables;
     public float gameSpeed = 3f;
+
+    [SerializeField] PlayableAsset[] playables;
+
+    [SerializeField] GameObject[] elevators;
+    
 
     PlayableDirector director;
     PlayerGrab playerGrab;
